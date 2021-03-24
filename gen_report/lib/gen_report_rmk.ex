@@ -28,8 +28,8 @@ defmodule GenReportRmk do
 
     %{
       all_hours: all_hours_key,
-      all_months: all_months_key,
-      all_years: all_years_key,
+      hours_per_month: all_months_key,
+      hours_per_year: all_years_key,
     }
   end
 
@@ -49,7 +49,7 @@ defmodule GenReportRmk do
 
   def sum_hours([m = %{}]), do: m
   def sum_hours([head = %{}|tail]) do
-    Map.merge(head, sum_hours(tail), fn _k, v1, v2 -> v1 + v2 end) #Isso funciona, mas depois eu confiro no python
+    Map.merge(head, sum_hours(tail), fn _k, v1, v2 -> v1 + v2 end)
   end
 
   def month_morph(s) do
