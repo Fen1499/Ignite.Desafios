@@ -8,7 +8,7 @@ defmodule Exflight.Users.User do
     {
       :ok,
       %__MODULE__{
-        id: 1,
+        id: UUID.uuid4(),
         name: name,
         email: email,
         cpf: cpf
