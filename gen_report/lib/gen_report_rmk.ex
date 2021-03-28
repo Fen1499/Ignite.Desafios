@@ -1,6 +1,6 @@
 defmodule GenReportRmk do
-  def call do
-    {:ok, data} = File.read("gen_report.csv") #nome, horas, dia, mes, ano
+  def call(filename) do
+    {:ok, data} = File.read("#{filename}.csv") #nome, horas, dia, mes, ano
 
     list = data
     |> String.split("\r\n")
