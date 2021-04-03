@@ -14,4 +14,6 @@ defmodule Exflight.Bookings.Agent do
       booking -> {:ok, booking}
     end
   end
+
+  def list_all(), do: Agent.get(__MODULE__, & &1)
 end
