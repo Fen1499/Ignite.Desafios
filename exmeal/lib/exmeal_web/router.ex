@@ -12,7 +12,6 @@ defmodule ExmealWeb.Router do
   scope "/", ExmealWeb do
     pipe_through :api
 
-    get "/", PageController, :index
     resources "/meals", MealsController, except: [:new, :edit]
   end
 
