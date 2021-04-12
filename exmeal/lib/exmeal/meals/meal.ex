@@ -2,12 +2,12 @@ defmodule Exmeal.Meals.Meal do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @required_params [:descricao, :data, :calorias]
-  #@derive {Jason.Encoder, :all}
+  @required_params [:descricao, :date, :calorias]
+  @derive {Jason.Encoder, only: @required_params++[:id]}
 
   schema "meals" do
     field :descricao, :string
-    field :data, :naive_datetime
+    field :date, :naive_datetime
     field :calorias, :string
 
     timestamps()

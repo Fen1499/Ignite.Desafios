@@ -12,7 +12,7 @@ defmodule Exmeal.Meals.Create do
   defp handle_result({status, _} = result) do
     case status do
       :ok -> result
-      :error -> {:error, result}
+      :error -> result
     end
   end
 

@@ -15,7 +15,7 @@ defmodule Exmeal.Meals.CreateTest do
 
     test "when there are invalid params, returns an error" do
       response =
-        build(:meal_params, %{"data" => "vazio"})
+        build(:meal_params, %{"date" => "vazio"})
         |> Create.call()
 
       assert {:error, _} = response

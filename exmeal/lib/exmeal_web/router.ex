@@ -1,10 +1,6 @@
 defmodule ExmealWeb.Router do
   use ExmealWeb, :router
 
-  pipeline :browser do
-    plug :accepts, ["html"]
-  end
-
   pipeline :api do
     plug :accepts, ["json"]
   end
