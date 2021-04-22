@@ -1,6 +1,6 @@
-defmodule Exmeal.FallbackController do
+defmodule ExmealWeb.FallbackController do
   use ExmealWeb, :controller
-  alias Exmeal.ErrorView
+  alias ExmealWeb.ErrorView
 
   def call(conn, {:error, result}) do
     conn
