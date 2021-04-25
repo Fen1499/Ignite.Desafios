@@ -7,7 +7,7 @@ defmodule ExmealWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_exmeal_key",
-    signing_salt: "h4d5YuXY"
+    signing_salt: "yRiCHLYy"
   ]
 
   socket "/socket", ExmealWeb.UserSocket,
@@ -29,8 +29,6 @@ defmodule ExmealWeb.Endpoint do
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
-    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
-    plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :exmeal
   end

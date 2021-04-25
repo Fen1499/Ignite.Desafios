@@ -14,7 +14,7 @@ config :exmeal,
 config :exmeal, ExmealWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "qGEVnhTK7LK8lXD1ZdSq4cwKSGWTVXKm/hM1fVIcntz8g7Cav8r+rVT8sYI9kA7G",
-  render_errors: [view: ExmealWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [view: ExmealWeb.ErrorView, accepts: ~w(json), layout: false],
   pubsub_server: Exmeal.PubSub,
   live_view: [signing_salt: "9/Bai36a"]
 

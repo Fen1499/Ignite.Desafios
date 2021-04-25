@@ -8,7 +8,7 @@ defmodule ExmealWeb.MealsViewTest do
   test "render create.json" do
     meal = build(:meal)
     response = render(MealsView, "create.json", meal: meal)
-    assert "" = response
+    assert %{meal: _, message: "Meal created"} = response
 
   end
 end
