@@ -19,4 +19,10 @@ defmodule Exmeal.Meals.Meal do
     |> validate_required(@required_params)
   end
 
+  def changeset(struct, params) do
+    struct
+    |> cast(params, @required_params)
+    |> validate_required(@required_params)
+  end
+
 end

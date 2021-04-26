@@ -38,7 +38,7 @@ defmodule ExmealWeb.MealControllerTest do
         |> get(Routes.meals_path(conn, :show, meal_id))
         |> json_response(:ok)
 
-      assert %{"meal" => %{"id" => meal_id}} = response
+      assert %{"meal" => %{"id" => _}} = response
     end
 
     test "when there are invalid parameters, returns an error", %{conn: conn} do

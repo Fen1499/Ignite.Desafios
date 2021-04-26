@@ -11,4 +11,11 @@ defmodule ExmealWeb.MealsViewTest do
     assert %{meal: _, message: "Meal created"} = response
 
   end
+
+  test "render meal.json" do
+    meal = build(:meal)
+    response = render(MealsView, "meal.json", meal: meal)
+    assert %{meal: _} = response
+
+  end
 end
