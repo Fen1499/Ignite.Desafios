@@ -3,7 +3,7 @@ defmodule Exmeal.Meals.Update do
 
 
 
-  def call(%{id: id} = params) do
+  def call(%{"id" => id} = params) do
     case Repo.get(Meal, id) do
       nil -> {:error, "Meal not found"}
       meal -> do_update(meal, params)
