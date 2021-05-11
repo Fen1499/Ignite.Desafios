@@ -78,4 +78,29 @@ defmodule ExmealWeb.MealControllerTest do
         assert %{"message" => "Meal not found"} = response
     end
   end
+
+  describe "delete/2" do
+    test "when all parameters are valid, returns a meal", %{conn: conn} do
+      {:ok, meal} =
+        build(:meal_params)
+        |> Create.call()
+
+      %Meal{id: meal_id} = meal
+      response =
+        conn
+        |> delete(Routes.meals_path(conn, :delete, meal_id))
+        |> response(:no_content)
+
+      assert "" = response
+    end
+
+    test "when there are invalid parameters, returns an error", %{conn: conn} do
+      response =
+        conn
+        |> delete(Routes.meals_path(conn, :delete, 9999))
+        |> json_response(:bad_request)
+
+        assert %{"message" => "Meal not found"} = response
+    end
+  end
 end
