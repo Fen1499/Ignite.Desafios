@@ -24,4 +24,13 @@ defmodule Exmeal.Users.User do
     |> unique_constraint([:email])
     |> unique_constraint([:cpf])
   end
+
+  def changeset(struct, params) do
+    struct
+    |> cast(params, @required_params)
+    |> validate_required(@required_params)
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint([:email])
+    |> unique_constraint([:cpf])
+  end
 end
