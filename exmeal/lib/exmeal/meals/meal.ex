@@ -1,7 +1,7 @@
 defmodule Exmeal.Meals.Meal do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Rockelivery.Users.User
+  alias Exmeal.Users.User
 
   @required_params [:descricao, :date, :calorias]
   @derive {Jason.Encoder, only: @required_params++[:id]}
