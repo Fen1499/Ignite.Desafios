@@ -1,13 +1,13 @@
 defmodule Exmeal.Users.User do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Rockelivery.Meals.Meal
+  alias Exmeal.Meals.Meal
 
-  @required_params [:nome, :cpf, :email]
+  @required_params [:name, :cpf, :email]
   @derive {Jason.Encoder, only: @required_params++[:id]}
 
   schema "users" do
-    field :nome, :string
+    field :name, :string
     field :cpf, :string
     field :email, :string
 

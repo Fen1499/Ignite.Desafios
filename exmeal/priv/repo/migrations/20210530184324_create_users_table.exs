@@ -3,7 +3,7 @@ defmodule Exmeal.Repo.Migrations.CreateUsersTable do
 
   def change do
     create table :users do
-      add :nome, :string
+      add :name, :string
       add :cpf, :string
       add :email, :string
 
