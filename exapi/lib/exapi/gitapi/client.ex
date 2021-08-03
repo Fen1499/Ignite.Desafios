@@ -3,10 +3,11 @@ defmodule Exapi.GitApi.Client do
   alias Tesla.Env
 
   plug Tesla.Middleware.JSON
-  @base_url "https://api.github.com/"
+  plug Tesla.Middleware.Headers, [{"user-agent", "Tesla"}]
+  @base_url "https://api.github.com"
 
   def get_user_info(username) do
-    "#{@base_url}/repos/#{username}"
+    "#{@base_url}/users/#{username}/repos"
     |> get()
     |> handle_get()
   end
@@ -17,5 +18,9 @@ defmodule Exapi.GitApi.Client do
 
   defp handle_get({:error, %Env{status: status, body: body}}) do
     {:error, {status, body}}
+  end
+
+  defp handle_get({:ok, %Env{} = env}) do
+    {:error, env}
   end
 end

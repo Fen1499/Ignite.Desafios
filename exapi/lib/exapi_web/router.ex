@@ -8,7 +8,7 @@ defmodule ExapiWeb.Router do
   scope "/api", ExapiWeb do
     pipe_through :api
 
-    get "/username", ApiController, :index
+    post "/user", ApiController, :index
   end
 
   # Enables LiveDashboard only for development
