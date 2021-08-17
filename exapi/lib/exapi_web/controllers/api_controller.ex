@@ -3,9 +3,9 @@ defmodule ExapiWeb.ApiController do
   alias Exapi.GitApi.Client
 
   def index(conn, params) do
-    with {:ok, user_data} <- get_and_format(params) do
+    with {status, user_data} <- get_and_format(params) do
       conn
-      |>put_status(:ok)
+      |>put_status(status)
       |>json(user_data)
     end
   end
@@ -15,8 +15,8 @@ defmodule ExapiWeb.ApiController do
       {:ok, data} ->
         mapped = Enum.map(data, fn x -> format_list(x) end)
         {:ok, mapped}
-      {:error, err} ->
-        {:error, err}
+      {:error, _} ->
+        {:not_found, %{"Message": "User not found"}}
     end
   end
 
