@@ -15,7 +15,7 @@ defmodule ExapiWeb.ApiController do
       {:ok, data} ->
         mapped = Enum.map(data, fn x -> format_list(x) end)
         {:ok, mapped}
-      {:error, _} ->
+      {:error, _} -> #Da pra melhorar, mas vou manter simples e objetivo
         {:not_found, %{"Message": "User not found"}}
     end
   end

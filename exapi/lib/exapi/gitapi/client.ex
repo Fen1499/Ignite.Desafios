@@ -6,8 +6,8 @@ defmodule Exapi.GitApi.Client do
   plug Tesla.Middleware.Headers, [{"user-agent", "Tesla"}]
   @base_url "https://api.github.com"
 
-  def get_user_info(username) do
-    "#{@base_url}/users/#{username}/repos"
+  def get_user_info(url\\ @base_url, username) do
+    "#{url}/users/#{username}/repos"
     |> get()
     |> handle_get()
   end
