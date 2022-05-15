@@ -1,5 +1,6 @@
 defmodule ExapiWeb.UsersController do
   use ExapiWeb, :controller
+  alias ExapiWeb.Auth.Guardian
   alias Exapi.User
 
   def create(conn, params) do
@@ -10,11 +11,11 @@ defmodule ExapiWeb.UsersController do
     end
   end
 
-  def login(conn, %{"id" =>  id}) do
-    with {:ok, %User{} = user} <- Exapi.get_user_by_id(id) do
+  def login(conn, params) do
+    with {:ok, token} <- Guardian.authenticate(params, %{}) do
       conn
       |> put_status(:ok)
-      |> render("user.json", user: user)
+      |> render("token.json", token: token)
     end
   end
 

@@ -10,6 +10,7 @@ defmodule ExapiWeb.Router do
 
     post "/user", ApiController, :index
     post "/user/create", UsersController, :create
+    post "/user/login", UsersController, :login
   end
 
   # Enables LiveDashboard only for development

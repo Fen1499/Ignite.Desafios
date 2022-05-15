@@ -2,13 +2,17 @@ defmodule ExapiWeb.UsersView do
   use ExapiWeb, :view
   alias Exapi.User
 
-  def render("create.json", _) do
+  def render("create.json", %{user: %User{id: id}}) do
     %{
-      message: "Ok!"
+      message: "Ok!",
+      id: id
     }
   end
 
-  def render("token.json", %{user: %User{} = user}) do
-
+  def render("token.json", %{token: token}) do
+    %{
+      message: "Ok!",
+      token: token
+    }
   end
 end

@@ -10,6 +10,9 @@ use Mix.Config
 config :exapi,
   ecto_repos: [Exapi.Repo]
 
+  config :exapi, Exapi.Repo,
+  migration_primary_key: [type: :binary_id]
+
 # Configures the endpoint
 config :exapi, ExapiWeb.Endpoint,
   url: [host: "localhost"],
@@ -26,7 +29,7 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :exapi, MyApp.Guardian,
+config :exapi, ExapiWeb.Auth.Guardian,
        issuer: "exapi",
        secret_key: "khx8yK5eql76Miv/55G7ouJH4NnCgHPUbT9pER3+R2kJ6zXanpcbmrW2k2Qpu5iW"
 
