@@ -4,6 +4,11 @@ defmodule ExapiWeb.ApiController do
 
   def index(conn, params) do
     with {status, user_data} <- get_and_format(params) do
+      {:ok, _, {new_token, _}} =
+        conn
+        |> Guardian.Plug.current_token()
+        |> ExapiWeb.Auth.Guardian.refresh()
+      IO.inspect(new_token)
       conn
       |>put_status(status)
       |>json(user_data)

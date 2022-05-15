@@ -5,7 +5,7 @@ defmodule ExapiWeb.Auth.Guardian do
   def authenticate(%{"id" => id, "password" => password}, _claims) do
     with {:ok ,%User{id: id, password_hash: hash}} <- Exapi.Users.Get.by_id(id),
         true <- Pbkdf2.verify_pass(password, hash),
-        {:ok, token, _claims} <- encode_and_sign(id , %{}, ttl: {30, :minute}) do
+        {:ok, token, _claims} <- encode_and_sign(id , %{}, ttl: {1, :minute}) do
           {:ok, token}
         else
          {:error, message} -> {:error, %{message: message, code: "unauthorized"}}
