@@ -5,10 +5,19 @@ defmodule ExapiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+   plug Exapi.Auth.Pipeline
+  end
+
+  scope "/api", ExapiWeb do
+    pipe_through [:api, :auth]
+
+    post "/user", ApiController, :index
+  end
+
   scope "/api", ExapiWeb do
     pipe_through :api
 
-    post "/user", ApiController, :index
     post "/user/create", UsersController, :create
     post "/user/login", UsersController, :login
   end

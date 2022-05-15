@@ -9,6 +9,7 @@ defmodule ExapiWeb.Auth.Guardian do
           {:ok, token}
         else
          {:error, message} -> {:error, %{message: message, code: "unauthorized"}}
+         false -> {:error, %{message: "unauthorized", code: "unauthorized"}}
       end
     end
 
