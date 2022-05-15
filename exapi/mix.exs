@@ -33,20 +33,20 @@ defmodule Exapi.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.5.8"},
-      {:phoenix_ecto, "~> 4.1"},
-      {:ecto_sql, "~> 3.4"},
+      {:phoenix, "~> 1.6"},
+      {:phoenix_ecto, "~> 4.4"},
+      {:phoenix_live_dashboard, "~> 0.6.5"},
+      {:ecto_sql, "~> 3.8"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_live_dashboard, "~> 0.4"},
-      {:telemetry_metrics, "~> 0.4"},
-      {:telemetry_poller, "~> 0.4"},
-      {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"},
+      {:telemetry_metrics, "~> 0.6"},
+      {:telemetry_poller, "~> 1.0"},
+      {:gettext, "~> 0.19"},
+      {:jason, "~> 1.3"},
+      {:plug_cowboy, "~> 2.5"},
       {:tesla, "~> 1.4.0"},
-      {:hackney, "~> 1.17.0"},
+      # {:hackney, "~> 1.18.0"},
       {:bypass, "~> 2.1", only: :test},
-      {:guardian, "~> 2.0"},
+      {:guardian, "~> 2.2"},
       {:pbkdf2_elixir, "~>1.4"}
     ]
   end
