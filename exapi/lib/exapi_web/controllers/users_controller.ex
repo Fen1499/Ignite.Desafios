@@ -10,11 +10,11 @@ defmodule ExapiWeb.UsersController do
     end
   end
 
-  def show(conn, %{"id" =>  id}) do
+  def login(conn, %{"id" =>  id}) do
     with {:ok, %User{} = user} <- Exapi.get_user_by_id(id) do
       conn
       |> put_status(:ok)
-      |> render("userjson", user: user)
+      |> render("user.json", user: user)
     end
   end
 

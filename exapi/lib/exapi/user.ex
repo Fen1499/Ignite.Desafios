@@ -2,10 +2,12 @@ defmodule Exapi.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Ecto.Changeset
+  @primary_key {:id, :binary_id, autogenerate: true}
   @required_params [:password]
 
   schema "users" do
-    field :password, :string
+    field :password, :string, virtual: true
+    field :password_hash, :string
 
     timestamps()
   end
